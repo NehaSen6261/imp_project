@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* #hu{ */
+  .my-custom-class .tooltip-inner {
+    background-color: darkgreen;
+    font-size: 12px;
+    /* margin-right:80%; */
+
+  }
+  /* .my-custom-class .arrow::before {
+    border-top-color: darkgreen;
+    margin-right: 100%;
+    transform: rotate(60deg);
+    padding:10px
+  } */

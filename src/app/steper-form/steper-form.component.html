@@ -1,0 +1,458 @@
+
+
+      <div style="margin-left: 35%;padding-top: 33px;">
+        <button type="button" class="btn btn-dark btn-sm"
+        (click)="clearform_all()">Create</button>&nbsp;&nbsp;
+
+        <button type="button" class="btn btn-primary btn-sm" (click)="edit_button()">Edit</button>
+    </div>
+
+<mat-vertical-stepper linear #stepper>
+ 
+        
+        <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+
+                <ng-template matStepLabel>Step 1</ng-template>
+                <!-- <div class="myco"> -->
+                <div class="mt-2">
+                    <div class="col">
+
+                        <div class="container">
+
+                            <h3>Application Configrations</h3>
+
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>Choose applications</mat-label>
+                                <mat-select formControlName="app_id" placeholder="Select an option"
+                                    (selectionChange)="enableForm_1()">
+                                    <mat-option *ngFor="let option of loginValue" [value]="option">
+                                        {{ option.viewValue }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cont">
+                    <div class="line">
+                        <mat-divider></mat-divider>
+                    </div>
+                    <div class="text mat-typography">OR</div>
+                    <div class="line">
+                        <mat-divider></mat-divider>
+                    </div>
+                </div>
+
+                <div class="mt-2">
+
+                    <div class="container">
+                        <h3>Create Application</h3>
+                        <div class="row">
+                            <div class="col-3">
+
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Application name</mat-label>
+                                    <input matInput type="text" formControlName="app_name" (input)="enableForm()"
+                                        maxlength="40" minlength="3" required>
+
+
+
+                                </mat-form-field>
+                                <div class="error-messages" style="color: red;">
+                                    <ng-container *ngFor="let error of error_messages.app_name">
+                                        <div class="error-message" *ngIf="firstFormGroup.get('app_name').hasError(error.type) && 
+(firstFormGroup.get('app_name').dirty || firstFormGroup.get('app_name').touched)">
+                                            {{ error.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                             
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Decription</mat-label>
+                                    <input matInput type="text" formControlName="app_dese" (input)="enableForm()"
+                                        maxlength="40" minlength="3" required>
+
+                                </mat-form-field>
+
+                                <div class="error-messages" style="color: red;">
+                                    <ng-container *ngFor="let error of error_messages.app_dese">
+                                        <div class="error-message" *ngIf="firstFormGroup.get('app_dese').hasError(error.type) && 
+(firstFormGroup.get('app_dese').dirty || firstFormGroup.get('app_dese').touched)">
+                                            {{ error.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <div class="col-3">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Operation</mat-label>
+                                    <input matInput type="text" formControlName="app_operation" (input)="enableForm()"
+                                        maxlength="40" minlength="3" required>
+
+                                </mat-form-field>
+                                <div class="error-messages" style="color: red;">
+                                    <ng-container *ngFor="let error of error_messages.app_operation">
+                                        <div class="error-message" *ngIf="firstFormGroup.get('app_operation').hasError(error.type) && 
+(firstFormGroup.get('app_operation').dirty || firstFormGroup.get('app_operation').touched)">
+                                            {{ error.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Location</mat-label>
+                                    <input matInput type="text" formControlName="app_location" (input)="enableForm()"
+                                        maxlength="40" minlength="3" required>
+
+                                </mat-form-field>
+
+                                <div class="error-messages" style="color: red;">
+                                    <ng-container *ngFor="let error of error_messages.app_location">
+                                        <div class="error-message" *ngIf="firstFormGroup.get('app_location').hasError(error.type) && 
+(firstFormGroup.get('app_location').dirty || firstFormGroup.get('app_location').touched)">
+                                            {{ error.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            <!-- </div> -->
+
+
+                <div style="margin-left: 35%;">
+                    <button type="button" class="btn btn-warning btn-sm"
+                        (click)="clearform()">Clear</button>&nbsp;&nbsp;
+
+                    <button type="button" class="btn btn-primary btn-sm" matStepperNext
+                        [disabled]="!firstFormGroup.valid">Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Step 2</ng-template>
+
+                <div class="mt-2">
+
+                    <div class="container">
+                        <h3>Device Configrations</h3>
+                        <div class="row">
+                            <div class="col-3">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Device name</mat-label>
+                                    <input matInput type="text" formControlName="device_name" maxlength="40"
+                                        minlength="3" required>
+                                </mat-form-field>
+                                <div class="error-messages" style="color: red;">
+                                    <ng-container *ngFor="let error of error_messages.device_name">
+                                        <div class="error-message" *ngIf="secondFormGroup.get('device_name').hasError(error.type) && 
+(secondFormGroup.get('device_name').dirty || secondFormGroup.get('device_name').touched)">
+                                            {{ error.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Description</mat-label>
+                                    <input matInput type="text" formControlName="device_desc" maxlength="40"
+                                        minlength="3" required>
+
+
+
+                                </mat-form-field>
+                                <div class="error-messages" style="color: red;">
+                                    <ng-container *ngFor="let error of error_messages.device_desc">
+                                        <div class="error-message" *ngIf="secondFormGroup.get('device_desc').hasError(error.type) && 
+(secondFormGroup.get('device_desc').dirty || secondFormGroup.get('device_desc').touched)">
+                                            {{ error.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-3">
+                                <mat-form-field appearance="outline" style="width:88%">
+                                    <mat-label>Application</mat-label>
+                                    <mat-select formControlName="app_name">
+                                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                                            {{food.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Device type</mat-label>
+                                    <input matInput type="text" formControlName="device_type" maxlength="40"
+                                        minlength="3" required>
+
+
+
+                                </mat-form-field>
+                                <div class="error-messages" style="color: red;">
+                                    <ng-container *ngFor="let error of error_messages.device_type">
+                                        <div class="error-message" *ngIf="secondFormGroup.get('device_type').hasError(error.type) && 
+(secondFormGroup.get('device_type').dirty || secondFormGroup.get('device_type').touched)">
+                                            {{ error.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-3">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>EUI ID</mat-label>
+                                        <input matInput formControlName="device_eui" maxlength="40" minlength="3"
+                                            required>
+
+
+
+                                    </mat-form-field>
+                                    <div class="error-messages" style="color: red;">
+                                        <ng-container *ngFor="let error of error_messages.device_eui">
+                                            <div class="error-message" *ngIf="secondFormGroup.get('device_eui').hasError(error.type) && 
+(secondFormGroup.get('device_eui').dirty || secondFormGroup.get('device_eui').touched)">
+                                                {{ error.message }}
+                                            </div>
+                                        </ng-container>
+                                    </div>
+
+
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Latitude</mat-label>
+                                        <input matInput formControlName="device_eui" maxlength="40" minlength="3"
+                                            required>
+
+
+
+                                    </mat-form-field>
+                                    <div class="error-messages" style="color: red;">
+                                        <ng-container *ngFor="let error of error_messages.device_eui">
+                                            <div class="error-message" *ngIf="secondFormGroup.get('latitude').hasError(error.type) && 
+(secondFormGroup.get('latitude').dirty || secondFormGroup.get('latitude').touched)">
+                                                {{ error.message }}
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Longitude</mat-label>
+                                    <input matInput formControlName="longitude" maxlength="40" minlength="3" required>
+
+
+
+                                </mat-form-field>
+                                <div class="error-messages" style="color: red;">
+                                    <ng-container *ngFor="let error of error_messages.longitude">
+                                        <div class="error-message" *ngIf="secondFormGroup.get('latitude').hasError(error.type) && 
+(secondFormGroup.get('longitude').dirty || secondFormGroup.get('longitude').touched)">
+                                            {{ error.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Location </mat-label>
+                                    <input matInput formControlName="location" maxlength="40" minlength="3" required>
+
+
+
+                                </mat-form-field>
+                                <div class="error-messages" style="color: red;">
+                                    <ng-container *ngFor="let error of error_messages.longitude">
+                                        <div class="error-message" *ngIf="secondFormGroup.get('latitude').hasError(error.type) && 
+(secondFormGroup.get('longitude').dirty || secondFormGroup.get('longitude').touched)">
+                                            {{ error.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-left:67%">
+                    <button type="button" class="btn btn-success btn-sm" matStepperPrevious>Back</button> &nbsp;&nbsp;
+                    <button type="button" class="btn btn-warning btn-sm"
+                        (click)="clearform_step_2()">Clear</button>&nbsp;&nbsp;
+
+                    <button type="button" class="btn btn-primary btn-sm" matStepperNext
+                        [disabled]="!secondFormGroup.valid">Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="thirdFormGroup">
+            <ng-template matStepLabel>step 3</ng-template>
+
+            <form [formGroup]="thirdFormGroup">
+
+                <button type="button" class="btn btn-primary btn-sm" style="margin-left:83%" (click)="addSellingPoint()"
+                    style="margin-left:67%">Add</button>
+
+                <div class="mt-2">
+                    <div formArrayName="selling_points">
+
+                        <div *ngFor="let item of sellingPoints.controls; let pointIndex=index;"
+                            [formGroupName]="pointIndex">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+
+                                        <mat-form-field appearance="outline" id="width_exm">
+                                            <mat-label>Attribute key</mat-label>
+                                            <input matInput formControlName="attr_key" maxlength="40" minlength="3"
+                                                required>
+                                        </mat-form-field>
+
+                                        
+                                    </div>
+
+                                    
+                                    <div class="col">
+
+
+                                        <mat-form-field appearance="outline" id="width_exm">
+                                            <mat-label>Data type </mat-label>
+                                            <mat-select (selectionChange)="max_min_value($event)"
+                                                formControlName="attr_data_type">
+                                                <mat-option>None</mat-option>
+                                                <mat-option value="option1">String</mat-option>
+                                                <mat-option value="option3">Number</mat-option>
+                                                <mat-option value="option2">Boolean</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <ng-template [ngIf]="attr_min_value_of_last_form">
+                                    <div class="col" >
+                                        <mat-form-field appearance="outline" id="width_exm">
+                                            <mat-label> Attr Min Value </mat-label>
+                                            <input matInput formControlName="attr_min_value" maxlength="40"
+                                                minlength="3">
+                                        </mat-form-field>
+                                   
+                                    </div>
+                                </ng-template>
+                                    <div class="col" *ngIf="attr_min_value_of_last_form">
+                                        <mat-form-field appearance="outline" id="width_exm">
+                                            <mat-label> Attr Max Value </mat-label>
+                                            <input matInput formControlName="attr_max_value" maxlength="40"
+                                                minlength="3">
+                                        </mat-form-field>
+                                    </div>
+
+
+                                    <div class="col" *ngIf="default_of_last_form">
+                                        <mat-form-field appearance="outline" id="width_exm">
+                                            <mat-label>Default </mat-label>
+                                            <input matInput formControlName="attr_default_value" maxlength="40"
+                                                minlength="3">
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="col">
+                                        <mat-form-field appearance="outline" id="width_exm">
+                                            <mat-label>UOM (Unit of Measurement)</mat-label>
+                                            <input matInput formControlName="attr_uom" maxlength="40" minlength="3"
+                                                required>
+                                        </mat-form-field>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <mat-form-field appearance="outline" id="width_exm">
+                                            <mat-label>Attribute Name</mat-label>
+                                            <input matInput formControlName="attr_name" maxlength="40" minlength="3"
+                                                required>
+                                        </mat-form-field>
+                                        <!-- <p>If entered name attribute name will be displaying in analytics</p> -->
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            (click)="deleteSellingPoint(pointIndex)">
+                                            <mat-icon>delete</mat-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div style="margin-left:84%">
+                <button type="button" class="btn btn-success btn-sm">Back</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-warning btn-sm"
+                    (click)="thirdFormGroup.reset()">Clear</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-primary btn-sm" matStepperNext
+                    [disabled]="!thirdFormGroup.valid">Next</button>
+
+            </div>
+        </mat-step>
+        <mat-step>
+            <form [formGroup]="fourthFormGroup">
+                <ng-template matStepLabel>Done</ng-template>
+
+                <div class="mt-2">
+
+                    <div class="container">
+                        <h3>Create Application</h3>
+                        <div class="row">
+                            <div class="col">
+
+                                <mat-form-field appearance="outline" style="width:90%">
+                                    <mat-label>Application</mat-label>
+                                    <mat-select formControlName="application">
+                                        <mat-option *ngFor="let food of foods" [value]="food">
+                                            {{food.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline" style="width:90%">
+                                    <mat-label>Work Center</mat-label>
+                                    <mat-select formControlName="workcenter">
+                                        <mat-option *ngFor="let food of foods" [value]="food">
+                                            {{food.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" style="width:90%">
+                                    <mat-label>Assest</mat-label>
+                                    <mat-select formControlName="assest">
+                                        <mat-option *ngFor="let food of foods" [value]="food">
+                                            {{food.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-left:50%">
+                    <button type="button" class="btn btn-info btn-sm" matStepperPrevious>Back</button> &nbsp;&nbsp;
+                    <button type="button" class="btn btn-warning btn-sm" (click)="clearform_all()">Reset
+                        All</button>&nbsp;&nbsp;
+
+                    <button type="button" class="btn btn-primary btn-sm" matStepperNext
+                        [disabled]="!fourthFormGroup.valid" type="submit" (click)="OnSubmit()">Submit</button>
+                </div>
+            </form>
+        </mat-step>
+</mat-vertical-stepper>

@@ -1,0 +1,49 @@
+<div class="container">
+   <h4> Add Multiple Card</h4>
+  
+  
+<!-- <div class="container">
+    
+     <form [formGroup]="Form" >
+       <div fromArrayName="contactform">
+           <div *ngFor="let row of Form.controls.contactform.controls; index as i">
+ 
+             <div class="card" style="width:400px">
+                <div class="card-body">
+                   <h4 [formControlName]="i"></h4>
+                   
+                 </div>
+               </div>
+           </div>
+ 
+       </div>
+   
+   
+     </form>
+ 
+    
+     <button mat-button color="primary" (click)="addQuantity()">Add</button>
+      
+   
+   
+   </div> -->
+  
+  <!-- </div>
+
+  <pre>{{Form.value | json}}</pre> -->
+
+  <button mat-button color="primary" (click)="gen()">Add More Card</button>
+<table >
+  <tr *ngFor="let id of list" > <td> {{ id }} </td> 
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div></tr>
+</table>
+

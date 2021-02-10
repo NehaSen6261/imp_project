@@ -1,0 +1,46 @@
+
+p {
+  font-family: Lato;
+}
+
+.addbtn{
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+.control-image {
+  position: relative;
+  background-color: rgb(241, 181, 201);
+  text-align: left;
+  cursor: move;
+  width: 200px;
+  margin-left: 20%;
+}
+
+.icon_1{
+  margin-left: 20%s;
+}
+
+.dragHandle {
+  position: absolute;
+  background-color: rgb(124, 107, 107);
+  border-radius: 10px;
+}
+
+.dragHandle.rb {
+  width: 15px;
+  height: 15px;
+  cursor: nwse-resize;
+}
+
+.dragHandle.right {
+  width: 2px;
+  height: 100%;
+  cursor: ew-resize;
+}
+
+.dragHandle.bottom {
+  height: 2px;
+  width: 100%;
+  cursor: ns-resize;
+}

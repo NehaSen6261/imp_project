@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-sm-6" >
+
+
+        <div  id="chart" class="card text-white bg-info mb-3" >
+   
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [stroke]="chartOptions.stroke"
+      [colors]="chartOptions.colors"
+      [dataLabels]="chartOptions.dataLabels"
+      [legend]="chartOptions.legend"
+      [markers]="chartOptions.markers"
+      [grid]="chartOptions.grid"
+      [yaxis]="chartOptions.yaxis"
+      [title]="chartOptions.title"
+    ></apx-chart>
+ 
+</div>
+
+
+
+</div>
+<div class="col-sm-6" >
+<div  id="chart" class="card text-white bg-danger mb-3" >
+    <div >
+        <apx-chart
+          [series]="chartOptions_2.series"
+          [chart]="chartOptions_2.chart"
+          [dataLabels]="chartOptions_2.dataLabels"
+         
+          [xaxis]="chartOptions_2.xaxis"
+        ></apx-chart>
+      </div>
+    </div>
+
+    
+
+    
+</div>

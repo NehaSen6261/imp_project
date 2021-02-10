@@ -1,0 +1,88 @@
+<div class="col-md-6 offset-md-3 mt-5">
+  <div class="card-body">
+    <div class="card">
+      <h4 class="card-header">Form</h4>
+<form *ngIf="form"  [formGroup]="form"  style="margin-left: 20%;">
+<!--   
+   <mat-form-field appearance="outline">
+    <mat-date-range-input
+      [rangePicker]="picker"
+      
+      [dateFilter]="unavailableDays"
+      separator="and"
+  
+      formGroupName="daterange"
+    >
+      <input matStartDate placeholder="Start date" formControlName="start" />
+      <input matEndDate placeholder="End date" formControlName="end" />
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker
+     
+      #picker
+    ></mat-date-range-picker>
+  </mat-form-field>  -->
+  <br> <br>
+  <mat-form-field appearance="outline">
+    <mat-label>Textarea</mat-label>
+    <textarea matInput   formControlName="locationJson"></textarea>
+    <!-- {{object | json}} -->
+  </mat-form-field>
+ 
+  <p  class="form-text text-danger"  *ngIf="form.controls.locationJson.errors">{{form.controls.locationJson.errors.json.message}}</p>
+    
+
+  <button (click)="onSubmit()" style="margin-left: 1rem;" mat-stroked-button>
+    Submit
+  </button>
+</form>
+</div>
+</div>
+</div>
+
+<!-- <button mat-icon-button 
+          [color]="buttonColor"
+          (click)="buttonColor = 'warn'">
+    <mat-icon>remove_circle</mat-icon>
+  </button> -->
+
+  
+  <ul class="horizontal" id="nav">
+    <li 
+      *ngFor="let state of states"
+      (click)="setStateAsActive(state)">
+      <button  class="text-left" type="button" class="btn btn-light"  [class.active]="state === activeState">
+        {{ state }}
+      </button>
+    </li>
+  </ul>
+    
+  <br>  <br>
+  <!-- <button type="button" id="btn_bootstrap" class="btn btn-outline-secondary mr-1" placement="top" ngbTooltip="Tooltip on top">
+    Tooltip on top
+  </button>
+  <button type="button" id="btn_bootstrap" class="btn btn-outline-secondary mr-2" placement="right" ngbTooltip="Tooltip on right">
+    Tooltip on right
+  </button>
+
+  <button mat-raised-button color="primary"  id="btn_bootstrap" 
+   matTooltip="This is the Tooltip!" matTooltipPosition="right">This text has a tooltip!
+  </button> -->
+  <button type="button" id="btn_bootstrap" class="btn btn-outline-secondary" ngbTooltip="Nice class!" placement="right"
+  tooltipClass="my-custom-class">
+  Tooltip with custom class
+</button>
+ <div *ngFor="let item of  utc_time ; index as i">
+  
+  <!-- <h2>{{item |datepipeExm}}</h2> -->
+  {{ item | amFromUtc:'DD-MM-YYYY HH:mmZZ' | amDateFormat: 'YYYY-MM-DD HH:mm' }}
+
+</div>
+
+
+
+
+
+
+
+

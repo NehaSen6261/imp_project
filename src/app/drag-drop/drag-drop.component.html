@@ -1,0 +1,86 @@
+
+
+
+
+<!-- <div class="row" id="btn-class" > -->
+<!-- <button mat-raised-button color="primary" (click)="gen()" style="margin-right: 20px;" >Add More Card</button> -->
+<!-- <button mat-raised-button color="primary" (click)="removeItem(i)" *ngIf="cancelable;" >Remove</button> -->
+<!-- </div> -->
+<!-- <div class="row" *ngFor="let id of list; index as i" > -->
+  <!-- <div class="col-sm-3" ><div class="example-box" cdkDrag (click)="changePosition()">
+    Card 1
+   </div></div> -->
+   <!-- <div class="col-sm-3" >
+    
+    <app-resizable-drag [width]="300" [height]="150" [left]="300" [top]="150">
+      Card {{i+1}}
+    </app-resizable-drag> -->
+  <!-- <mat-card  class="resize" cdkDrag   [cdkDragFreeDragPosition]="changePosition()" style="margin-right: 20px;">
+  
+  
+   
+    Card {{i+1}}
+ 
+  </mat-card> -->
+
+  
+
+
+
+  <!-- <textarea  matInput  class="example-box" cdkDrag  (click)="changePosition()" style="margin-right: 20px;">Card {{i+1}}</textarea> -->
+  <!-- <div class="col-sm-3" >
+    <div class="example-box" cdkDrag [cdkDragFreeDragPosition]="dragPosition_2">
+      Card 3
+    </div></div>
+
+    <div class="col-sm-3" >
+      <div class="example-box" cdkDrag [cdkDragFreeDragPosition]="dragPosition_3">
+        Card 3
+      </div>
+    </div> -->
+
+<!--    
+</div>
+
+</div> -->
+
+<div>
+  <button mat-raised-button color="primary"  class="addbtn" (click)="addControl()" >add</button>
+</div>
+<div>
+  
+  <div *ngFor="let control of controls;index as i" class="card"
+          #resizeBox class="control-image"  cdkDrag cdkDragBoundary=".header-image"
+          [style.width.px]="control.width"
+          [style.height.px]="control.height"
+          (click)="clickControl(control)"
+            >
+          
+                <span #dragHandleRB [cdkDragLockAxis]="lockAxis" class="dragHandle rb" cdkDrag (cdkDragMoved)="dragMove(dragHandleRB, $event, control)"></span>
+                <span #dragHandleBottom cdkDragLockAxis="y" class="dragHandle bottom" cdkDrag (cdkDragMoved)="dragMove(dragHandleBottom, $event, control)"></span>
+                <span #dragHandleRight cdkDragLockAxis="x" class="dragHandle right" cdkDrag (cdkDragMoved)="dragMove(dragHandleRight, $event, control)"></span>
+               <div class="icon_1">
+                <mat-icon (click)="removeItem(i)">cancel</mat-icon>
+                <mat-icon (click)="addControl()">file_copy</mat-icon> 
+                <mat-icon>create</mat-icon>
+
+                card {{i+1}}
+
+
+              </div>
+
+              </div>
+                  
+           
+</div>
+
+
+
+
+
+
+
+
+
+
+ 
